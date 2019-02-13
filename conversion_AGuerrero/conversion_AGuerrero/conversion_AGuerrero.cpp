@@ -5,6 +5,8 @@
 
 #include "pch.h"
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 /*
  
@@ -32,6 +34,6 @@ int main()
 	km = mi * CONVERSIONFACTOR;
 	
 	// display our results for the user to see on screen
-	cout << "There are " << km << "km in " << mi << "mi." << endl;
+	cout << fixed(3) << setprecision(3) <<"There are " << km << "km in " << mi << "mi." << endl;
 }
 
