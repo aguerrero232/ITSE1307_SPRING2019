@@ -33,7 +33,7 @@ int main()
 	// sets our variable for kilometers to miles * the conversion factor
 	km = mi * CONVERSIONFACTOR;
 
-	// display our results for the user to see on screen
+	// display our results for the user to see on screen also messing around with iomanip filling and setting precision of the values
 	cout << "There are "<< setw(10) << setfill('*') << setprecision(3) << km;
 	cout << setprecision(3) << setw(50) << setfill('$') << "km in " << mi << "mi."<< endl;
 
