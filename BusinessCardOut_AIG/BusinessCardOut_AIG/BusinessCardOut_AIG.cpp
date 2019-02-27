@@ -43,7 +43,7 @@ int main()
 	fileVC << "x-qq:21588891" << endl; // 
 
 	//every vcard uses END: 
-	fileVC << "END:VCARD " << endl;
+	fileVC << "END:VCARD" << endl;
 
 	// always close files!
 	fileVC.close();
