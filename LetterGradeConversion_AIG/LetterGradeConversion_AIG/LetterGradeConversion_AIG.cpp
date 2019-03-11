@@ -42,7 +42,7 @@ int main()
 
 	if (dblRoundCheck >= 9) {
 		intSwitchGradeCase++;
-		cout << fixed << setprecision(2) << "LUCKY YOU!!!" << intSwitchGradeCase << endl;
+		cout << fixed << setprecision(2) << "LUCKY YOU!!!" << endl;
 	}
 
 	// switch statement to print the users certain letter grade
