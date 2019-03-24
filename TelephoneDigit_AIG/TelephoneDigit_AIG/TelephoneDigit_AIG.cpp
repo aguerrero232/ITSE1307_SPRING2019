@@ -98,7 +98,7 @@ int main()
 						//	cout << chrFirstChar << "," << chrSecondChar << endl; // debugging
 						intNumPortionHolder = ((int)(chrFirstChar)-48) * 10 + ((int)(chrSecondChar)-48);
 						//	cout << "NUMBER: " << intNumPortionHolder << endl; // debugging
-							// first if checks for lowercase a-c
+						// first if checks for lowercase a-c
 						if (intNumPortionHolder > 96 && intNumPortionHolder < 100) {
 							strTNumHolder += (char)intNumPortionHolder;
 							cout << endl << "LOWERCASE LETTER:" << (char)intNumPortionHolder << endl;
@@ -128,6 +128,7 @@ int main()
 						position++;
 					}
 				}
+				strTNumHolder = "\"" + strTNumHolder + "\"";
 				cout << endl << "YOUR PHONE NUMBER SPELLS: " << strTNumHolder << "!" << endl;
 				cout << "Would you like to repeat converting Telphone numbers into Charachters? (y for YES n for NO): " << endl;
 				cin >> chrRepeatOpt;
@@ -185,10 +186,12 @@ int main()
 			break;
 
 		case 3:
+			// EXIT PROGRAM
 			choice = true;
 			break;
 
 		default:
+			// USER INPUT MISTAKE
 			cout << "INVALID OPTION ENTERED!" << endl;
 			choice = false;
 		}
