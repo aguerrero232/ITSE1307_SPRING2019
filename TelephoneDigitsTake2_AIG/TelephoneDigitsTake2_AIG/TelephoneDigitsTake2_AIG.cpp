@@ -1,3 +1,6 @@
+// Ariel Guerrero
+// Telphone digits
+// Updated 4/2/2019
 #include "pch.h"
 #include <iostream>
 #include <string>
@@ -11,18 +14,14 @@ int main()
 {
 	string strUsrInputString = "DEFAULT";
 	string strPhoneNumber = "";
-	string strLeftover = "";
-
 	char chrCurrentCharacterHolder = ' ';
 	char chrUserRepeatOption = 'y';
 	int intLoopCounter = 0;
-	int intLoopCnt = 0;
 	do {
 		// just incase anything from last run is left over i just reset everything to make sure im starting off clean
 		strUsrInputString = "DEFAULT";
 		strPhoneNumber = "";
 		cout << "Enter Letters corresponding to a phone number  (10 characters MUST be entered) : " << endl;
-		
 		do {
 			cin >> chrCurrentCharacterHolder;  // <-- how is this working if i can hit backspace and type multiple before hitting enter?
 			// cout << "YOU NEED " << 10 - strPhoneNumber.size() << " MORE CHARACTERS!" << endl; // only want this to display once per enter 
@@ -72,29 +71,19 @@ int main()
 				cout << "ERROR! " << chrCurrentCharacterHolder << ","<< (int)chrCurrentCharacterHolder << " IS NOT A CHARACTER ON THE PHONE! MARKING LOCATION WITH AN X" << endl;
 				strPhoneNumber += 'X';
 			}
-
 			chrCurrentCharacterHolder = ' ';
 			intLoopCounter++;
 		} while (strPhoneNumber.size() < 10);
-		
 		// need this to take care of the extra input check out the previous versions and you can see that things like this make life way easier
 		cin.clear();
-		
 		strPhoneNumber = "(" + strPhoneNumber.substr(0, 3) + ")" + strPhoneNumber.substr(3, 3) + "-" + strPhoneNumber.substr(6, 4);
 		cout << "Your phone number produced is: " << strPhoneNumber << endl;
-
-		// had to do this just incase they had used more than 10 chars 
-		cin >> strLeftover;
-		strLeftover = ""; // poof and now its gone
 		// restore for next run!
 		strPhoneNumber = "";
-
 		// easier for testing so i dont have to keep reseting  
 		cout << "Would you like to repeat this process? (y for yes, n for no): " << endl;
 		cin >> chrUserRepeatOption;
-
 		chrUserRepeatOption = tolower(chrUserRepeatOption);
-
 	} while (chrUserRepeatOption == 'y');
 	return 0;
 }
