@@ -1,3 +1,8 @@
+// Ariel Guerrero 
+// Prime Number Printer 1-10,000 
+// 4/2/2019
+// prints all prime numbers from 1 through 10,000! 
+
 
 #include "pch.h"
 #include <iostream>
