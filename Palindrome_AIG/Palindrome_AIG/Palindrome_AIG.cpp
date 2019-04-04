@@ -21,10 +21,10 @@ string toLowerString(string strUserInputString,int intUserStrLen) {
 // meat of the logic is here takes in the users string passes it to tolowerstring to make sure all letters are equal and then 
 // calculates to see if each set of characters are equal to each other    
 // 
-//				   1 2 3 3 2 1
-//	1st pass ->    *         *      : compares these then we move +1 on the left for half the length and -1 on the right for the same duration
-//  2nd pass ->      *     *
-//  3rd pass ->        * *          : finishes here and returns true since they are equal at those positions 
+//		    1 2 3 3 2 1
+//  1st pass ->     *         *      : compares these then we move +1 on the left for half the length and -1 on the right for the same duration
+//  2nd pass ->       *     *
+//  3rd pass ->         * *          : finishes here and returns true since they are equal at those positions 
 
 bool isPalindrome(string strUserInputString) {
 	int intUsrStrLen = strUserInputString.length();
