@@ -1,19 +1,32 @@
+// Roman Numeral class
+// This is what characteristics and properties I gave my roman numerals
 #include "pch.h"
 #include "RomanNumeral.h"
 #include <string>
 #include <vector>
 
+// constructor
 RomanNumeral::RomanNumeral()
 {
 	std::string strRomanString = "";
 	double dblUserValue = 0.0;
 }
+// overloaded for no reason might be of use later
+RomanNumeral::RomanNumeral(double dbluservalue)
+{
+	double dblUserValue = dbluservalue;
+	std::string strRomanString = "";
 
-RomanNumeral::~RomanNumeral()
-{	this->dblUserValue = 0.0;
-	this->strRomanString = "";
+
 }
-
+// deconstructor
+RomanNumeral::~RomanNumeral()
+{
+	dblUserValue = 0.0;
+	strRomanString = "";
+}
+// checks to see if the parameters are valid 
+// need to make a check for the string too but im already late
 bool RomanNumeral::isValid(double dblUsrVal)
 {
 	// TODO: Add your implementation code here.
@@ -23,30 +36,30 @@ bool RomanNumeral::isValid(double dblUsrVal)
 	return false;
 }
 
-double RomanNumeral::setValue(double pusrValue)
+void RomanNumeral::setValue(double pusrValue)
 {
 	// TODO: Add your implementation code here.
-	dblUserValue = pusrValue;
-	return this->dblUserValue;
+	this->dblUserValue = pusrValue;
 }
-std::string RomanNumeral::setString(std::string pstrromannum)
+void RomanNumeral::setString(std::string pstrromannum)
 {
 	// TODO: Add your implementation code here.
-	strRomanString = pstrromannum;
-	return this->strRomanString;
+	this->strRomanString = pstrromannum;
 }
 
 double RomanNumeral::getValue()
 {
 	// TODO: Add your implementation code here.
+   
 	return dblUserValue;
 }
 
-
 std::string RomanNumeral::getString()
 {
+
 	// TODO: Add your implementation code here.
-	return this->strRomanString;
+	
+	return strRomanString;
 }
 
 double RomanNumeral::convertToDecimal()
@@ -59,9 +72,9 @@ double RomanNumeral::convertToDecimal()
 	int intpreviousval = 0;
 
 	for (unsigned int characterIndex = 0; characterIndex < strUsrStrHolder.size(); characterIndex++) {
-		
+
 		switch (strUsrStrHolder.at(characterIndex)) {
-		//cases for each value 
+			//cases for each value 
 		case 'M':
 			intcurrentval = 1000;
 			break;
@@ -84,14 +97,15 @@ double RomanNumeral::convertToDecimal()
 			intcurrentval = 1;
 			break;
 		}
-		if (intcurrentval>intpreviousval) {
-			dblRomanDecVal += (intcurrentval)-(2 * intpreviousval);
+		if (intcurrentval > intpreviousval) {
+			dblRomanDecVal +=(intcurrentval)-(2 * intpreviousval);
 		}
 		else {
 			dblRomanDecVal += intcurrentval;
 		}
 		intpreviousval = intcurrentval;
 	}
+	setValue(dblRomanDecVal);
 	return dblRomanDecVal;
 }
 
@@ -102,34 +116,37 @@ std::string RomanNumeral::convertToRoman()
 	double dblDigitIndexHolder = 0;
 	//double dblPlaceValue = 0.0;
 	std::string strRomanNum = "";
-	std::vector<double> decimals = { 1000,900,500,400,100,90,50,40,10,9,5,4,1 }; //base values
-	std::vector<std::string> symbol = { "M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I" };  //roman symbols
+	std::vector<double> vdbRomanValues = { 1000,900,500,400,100,90,50,40,10,9,5,4,1 }; //base values
+	std::vector<std::string> vstrRomanSymbols = { "M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I" };  //roman symbols
 
-	if (!isValid(dblValueHolder)){
+	if (!isValid(dblValueHolder)) {
 		dblValueHolder = 1;
 	}
-	
-	while (dblValueHolder) { //repeat process until num is not 0
+
+	while (dblValueHolder > 0 && dblDigitIndexHolder < 13) { //repeat process until num is not 0
 			//dblPlaceValue = dblValueHolder / decimals[dblDigitIndexHolder];
-		while ((dblValueHolder) / (decimals[dblDigitIndexHolder])>1) {  //first base value that divides num is largest base value
-				strRomanNum += symbol[dblDigitIndexHolder];
-				dblValueHolder -= decimals[dblDigitIndexHolder];  //subtract largest base value from num
+		while ((dblValueHolder) / (vdbRomanValues[dblDigitIndexHolder]) > 1 != false) {  //first base value that divides num is largest base value
+			strRomanNum += vstrRomanSymbols[dblDigitIndexHolder];
+			dblValueHolder -= vdbRomanValues[dblDigitIndexHolder];  //subtract largest base value from num
 		}
 		dblDigitIndexHolder++;    //move to next base value to divide num
 	}
-
+	setString(strRomanNum);
 	return strRomanNum;
 }
 
 std::string RomanNumeral::ToString()
 {
 	std::string strUsrStrHolder = getString();
-	std::string toString = "";
 	double dblUsrValHolder = getValue();
+
+	std::string toString = "";
+
 	toString += "Value: ";
 	toString += dblUsrValHolder;
 	toString += " ";
 	toString += "Numerals: ";
 	toString += strUsrStrHolder;
- 	return toString;
+	return toString;
 }
+
