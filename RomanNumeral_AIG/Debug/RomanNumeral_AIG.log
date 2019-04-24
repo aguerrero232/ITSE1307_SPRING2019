@@ -1,0 +1,13 @@
+﻿  pch.cpp
+  RomanNumeral.cpp
+c:\users\holai\source\repos\romannumeral_aig\romannumeral_aig\romannumeral.cpp(114): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\holai\source\repos\romannumeral_aig\romannumeral_aig\romannumeral.cpp(115): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\holai\source\repos\romannumeral_aig\romannumeral_aig\romannumeral.cpp(116): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\holai\source\repos\romannumeral_aig\romannumeral_aig\romannumeral.cpp(130): warning C4244: 'argument': conversion from 'double' to '_Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+  RomanNumeral_AIG.cpp
+  Generating Code...
+  RomanNumeral_AIG.vcxproj -> C:\Users\holai\source\repos\RomanNumeral_AIG\Debug\RomanNumeral_AIG.exe
