@@ -101,6 +101,7 @@ bool Player::addCard(Card objpCard)
 		vtrPlayerHand.push_back(objpCard);
 		return true;
 	}
+	std::cout << "YOU HAVE THE MAXIMUM AMOUNT OF CARDS ALLOWED!" << std::endl;
 	return false;
 }
 
