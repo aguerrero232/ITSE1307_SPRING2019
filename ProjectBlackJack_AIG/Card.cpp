@@ -41,7 +41,6 @@ void Card::setRandom()
 	init(rand() % 52 + 1);
 }
 
-
 int Card::getFaceValue()
 {
 	return ((getValue() - 1) % 13) + 1;

@@ -4,7 +4,6 @@
 // ProjectBlackJack_AIG.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 // how can I make the process of determining the winner more streamlined?
-//
 #include "pch.h"
 #include <algorithm>
 #include <iostream>
@@ -51,6 +50,7 @@ void playIntroSong2() {
 }
 
 void playMetallica() {
+	// Metallica - Harvester of Sorrows
 	Beep(329, 300); //E
 	Beep(493, 300); //B
 	Beep(698, 300); //F^
@@ -406,6 +406,8 @@ int main()
 	playMetallica();
 	objPlayers = createPlayers();
 	// sets the games diff depending on the number of decks and money to start with 
+
+	
 	intGameDiffMultiplier = gameDifficulty();
 	objDeck = Deck(intGameDiffMultiplier);
 	objDeck.shuffle();
@@ -420,6 +422,12 @@ int main()
 		chrMenuChoice = tolower(chrMenuChoice);
 		switch (chrMenuChoice) {
 		case 'b':
+
+			// clears the players  last bet
+			for (int totalPlayerIndex = 0; totalPlayerIndex < objPlayers.size(); totalPlayerIndex++) {
+				objPlayers.at(totalPlayerIndex)->clearBet();
+			}
+
 			// clears the players old hand
 			for (int totalPlayerIndex = 0; totalPlayerIndex < objPlayers.size(); totalPlayerIndex++) {
 				objPlayers.at(totalPlayerIndex)->clearHand();
@@ -451,6 +459,12 @@ int main()
 				for (int totalPlayerIndex = 0; totalPlayerIndex < objPlayers.size(); totalPlayerIndex++) {
 					objPlayers.at(totalPlayerIndex)->clearHand();
 				}
+				
+				// clears the players old bet 
+				for (int totalPlayerIndex = 0; totalPlayerIndex < objPlayers.size(); totalPlayerIndex++) {
+					objPlayers.at(totalPlayerIndex)->clearBet();
+				}
+
 				// new deck and diff
 				intGameDiffMultiplier = gameDifficulty();
 				objDeck = Deck(intGameDiffMultiplier);
@@ -517,6 +531,7 @@ int main()
 					}
 				}
 			}
+
 			objPlayers = sortPlayersHandPoint(objPlayers);
 			objPlayers = whoWinsTheRound(objPlayers);
 			system("CLS");
@@ -538,8 +553,7 @@ int main()
 	} while (chrMenuChoice != 'q');
 	cout << "\a";
 	return 0;
-}
-//
+}//fin
 
 
 
@@ -874,4 +888,4 @@ int main()
 
 
 
-//
+//start

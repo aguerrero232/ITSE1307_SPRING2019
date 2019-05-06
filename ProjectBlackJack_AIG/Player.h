@@ -33,4 +33,5 @@ public:
 	int getBet();
 	int inputPlayerBet();
 
+	void clearBet();
 };

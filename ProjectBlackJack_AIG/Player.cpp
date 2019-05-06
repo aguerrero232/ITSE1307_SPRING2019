@@ -152,11 +152,17 @@ int Player::inputPlayerBet()
 	int intCurrentBet = 0;
 	do {
 		std::cout << "Please enter " << this->getPlayerName() << "'s bet!" << std::endl;
-		std::cout <<"Current balance is " << getMoney() << std::endl;
-		std::cout << "BET: ";
+		std::cout <<"Current balance is: $" << getMoney() << std::endl;
+		std::cout << "BET: $";
 		std::cin >> intCurrentBet;
 		std::cout << std::endl;
 	} while (intCurrentBet <= 0 || intCurrentBet > getMoney());
 	setBet(intCurrentBet);
 	return getBet();
+}
+
+void Player::clearBet()
+{
+
+	intBet = 0;
 }
